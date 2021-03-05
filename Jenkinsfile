@@ -2,7 +2,7 @@
 
 pipeline {
 agent any
-library 'case1@main'
+library 'mylib@main'
     stages {
         stage ('Case1'){
         steps {
