@@ -1,0 +1,10 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://xmlns.oracle.com/oxp/service/v2">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v2:objectExist>
+         <v2:reportObjectAbsolutePath></v2:reportObjectAbsolutePath>
+         <v2:userID>SVC-SAAS-DEPLOYMENTS</v2:userID>
+         <v2:password>Oracle123</v2:password>
+      </v2:objectExist>
+   </soapenv:Body>
+</soapenv:Envelope>
