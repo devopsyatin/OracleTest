@@ -53,8 +53,9 @@ agent any
             println "Extracting the URI or absolute path from metadata.meta"
             sh 'pwd'
             sh 'ls -lrth'
-            def metaxmlFile = getClass().getResourceAsStream("~metadata.meta")
-            def metadata = new XmlParser().parseFile(metaxmlFile)
+            def metaxmlFile = readTrusted("~metadata.meta")
+            //def metaxmlFile = getClass().getResourceAsStream("~metadata.meta")
+            def metadata = new XmlParser().parse(metaxmlFile)
             def cdataPath = metadata.entries.entry[5].value.text()
 
               //             }
