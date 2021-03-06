@@ -10,8 +10,9 @@ agent any
         steps {
           script {
             checkout scm
-            sh 'ls -lrth'
-            case1()
+            objectList = readTrusted("objectlist.txt")
+            println "${objectList}"
+            //case1()
           }
         }
         }
