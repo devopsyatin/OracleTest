@@ -51,7 +51,9 @@ agent any
             sh 'tree'
             dir("${tempDir}") {
             println "Extracting the URI or absolute path from metadata.meta"
-            def metaxmlFile = getClass().getResourceAsStream("/var/lib/jenkins/workspace/OracleTestPipeline/Temp-Directory/~metadata.meta")
+            sh 'pwd'
+            sh 'ls -lrth'
+            def metaxmlFile = getClass().getResourceAsStream("~metadata.meta")
             def metadata = new XmlSlurper().parse(metaxmlFile)
             def cdataPath = metadata.entries.entry[5].value.text()
 
