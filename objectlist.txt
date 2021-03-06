@@ -1,2 +1,2 @@
-Custom\Jenkinstest.xdoz
-Custom\OD AP PRG Extract ap terms lines.xdoz
+Custom/Jenkinstest.xdoz
+Custom/OD AP PRG Extract ap terms lines.xdoz
