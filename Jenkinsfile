@@ -56,7 +56,7 @@ agent any
             metaxmlfile = new File("${env.currentworkdir}/~metadata.meta").text
             println "${metaxmlfile}"
             //def metaxmlFile = getClass().getResourceAsStream("~metadata.meta")
-            def response = new XmlSlurper().parse("${metaxmlfile}")
+            def response = new XmlSlurper().parseText("${metaxmlfile}")
             def cdataPath = response.entries.entry[5].value.text()
 
               //             }
