@@ -53,10 +53,11 @@ agent any
             //cp env.currentworkdir/${objectPath}" "${env.currentworkdir}/temp-dir/${objectnameext}"'
             //sh 'mv "${env.currentworkdir}/temp-dir/${objectnameext}" "${env.currentworkdir}/temp-dir/${objectname}.zip"'
             println "Converting the object to ${objectname}.zip"
-            def srcfile = new File("${objectPath}")
-            def dstfile = new File("${objectname}.zip")
-            dstfile << srcfile.bytes
+            //def srcfile = new File("${objectPath}")
+            //def dstfile = new File("${objectname}.zip")
+            //dstfile << srcfile.bytes
 
+            new File("${objectname}.zip") << new File("${objectPat}.zip").bytes
             //println "${dstfile}"
             //sleep(60000)
             sh 'ls -lrth'
