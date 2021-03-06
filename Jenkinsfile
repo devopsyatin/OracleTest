@@ -12,7 +12,9 @@ agent any
             checkout scm
             objectList = readTrusted("objectlist.txt")
             println "${objectList}"
-            for(i in objectList) {
+            File objectlistfile = new File (objectList)
+            def objectslist_list  = objectlistfile.collect { it }
+            for(String i in objectslist_list) {
         //println(i);
         println "Processing Object ${i}"
             
