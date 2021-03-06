@@ -1,5 +1,6 @@
 def call () {
 script {
+sh 'pwd'
 String objectlist = "objectlist.txt"
 File objectlistfile = new File (objectlist)
 //println objectlistfile.text
