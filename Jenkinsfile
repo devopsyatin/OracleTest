@@ -40,9 +40,11 @@ agent any
             def tempDir = new File("${env.currentworkdir}/Temp-Directory")
             tempDir.mkdir()
             
-            new File("${env.currentworkdir}/${objectPath}").eachFile() {  
-            file->println file.getAbsolutePath()
-            }
+            //new File("${env.currentworkdir}/${objectPath}").eachFile() {  
+            //file->println file.getAbsolutePath()
+            //}
+            def pathDir = path.getParent("${env.currentworkdir}/${objectPath}")
+            println "${pathDir}"
             //sh '''
             //env.currentworkdir=`pwd`
             //tempDir=temp-dir
