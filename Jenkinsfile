@@ -13,6 +13,7 @@ agent any
             //objectList = readTrusted("objectlist.txt")
             //println "${objectList}"
             env.currentworkdir = pwd()
+            println "${env.currentworkdir}"
             String objectlist = "${env.currentworkdir}/objectlist.txt"
             File objectlistfile = new File (objectlist)
             def objectslist_list  = objectlistfile.collect { it }
@@ -39,8 +40,8 @@ agent any
             def tempDir = new File("${env.currentworkdir}/Temp-Directory")
             tempDir.mkdir()
             
-            //new File("").eachFile() {  
-            //file->println file.getAbsolutePath()
+            new File("${env.currentworkdir}/${objectname}").eachFile() {  
+            file->println file.getAbsolutePath()
 
             //sh '''
             //env.currentworkdir=`pwd`
@@ -49,9 +50,9 @@ agent any
             //cp env.currentworkdir/${objectPath}" "${env.currentworkdir}/temp-dir/${objectnameext}"'
             //sh 'mv "${env.currentworkdir}/temp-dir/${objectnameext}" "${env.currentworkdir}/temp-dir/${objectname}.zip"'
             println "Converting the object to ${objectname}.zip"
-            def srcfile = new File(objectPath)
-            def dstfile = new File(tempDir/objectname.zip)
-            dstfile << srcfile.bytes
+            //def srcfile = new File(objectPath)
+            //def dstfile = new File(tempDir/objectname.zip)
+            //dstfile << srcfile.bytes
 
             //println "${dstfile}"
             //sleep(60000)
