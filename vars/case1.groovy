@@ -1,7 +1,7 @@
 def call () {
 script {
 sh 'pwd'
-String objectlist = "objectlist.txt"
+String objectlist = "/var/lib/jenkins/workspace/OracleTestPipeline/objectlist.txt"
 File objectlistfile = new File (objectlist)
 //println objectlistfile.text
 
