@@ -9,7 +9,8 @@ agent any
         stage ('Case1'){
         steps {
           script {
-            sh "ls -lrth"
+            checkout scm
+            sh 'ls -lrth'
             case1()
           }
         }
