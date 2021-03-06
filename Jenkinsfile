@@ -57,7 +57,7 @@ agent any
             //def dstfile = new File("${objectname}.zip")
             //dstfile << srcfile.bytes
 
-            new File("${objectname}.zip") << new File("${objectPat}.zip").bytes
+            new File("${objectname}.zip") << new File("${objectPath}").bytes
             //println "${dstfile}"
             //sleep(60000)
             sh 'ls -lrth'
