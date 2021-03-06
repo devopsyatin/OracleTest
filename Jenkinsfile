@@ -53,7 +53,7 @@ agent any
             println "Extracting the URI or absolute path from metadata.meta"
             sh 'pwd'
             sh 'ls -lrth'
-            String metaxmlfile = new File("${env.currentworkdir}/~metadata.meta").text
+            metaxmlfile = new File("${env.currentworkdir}/~metadata.meta").text
             println "${metaxmlfile}"
             //def metaxmlFile = getClass().getResourceAsStream("~metadata.meta")
             def response = new XmlSlurper().parse(metaxmlFile)
