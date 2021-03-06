@@ -40,7 +40,7 @@ agent any
             def tempDir = new File("${env.currentworkdir}/Temp-Directory")
             tempDir.mkdir()
             
-            new File("${env.currentworkdir}/${objectname}").eachFile() {  
+            new File("${env.currentworkdir}/${objectPath}").eachFile() {  
             file->println file.getAbsolutePath()
             }
             //sh '''
