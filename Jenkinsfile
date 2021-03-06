@@ -42,7 +42,7 @@ agent any
             
             new File("${env.currentworkdir}/${objectname}").eachFile() {  
             file->println file.getAbsolutePath()
-
+            }
             //sh '''
             //env.currentworkdir=`pwd`
             //tempDir=temp-dir
