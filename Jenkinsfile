@@ -94,10 +94,10 @@ agent any
                         }
             def checkXml = XmlUtil.serialize(objectExistsdata)
             
-            //def newXml = new File("check.xml")
+            def newXml = new File("check.xml")
             //newXml.write("${checkXml}")
-            println "${checkXml}"
-
+            //println "${checkXml}"
+            sh 'cat objectExists.xml'
             //case1()
 
 
