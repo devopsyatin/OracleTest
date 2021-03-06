@@ -23,6 +23,8 @@ agent any
             def objectslist_list  = objectlistfile.collect { it }
 
             println "===================================================================================="
+            println "Processing the Objects in a FIFO manner"
+            println "===================================================================================="
 
             // Loop for processing the objects in a FIFO manner
             for(String i in objectslist_list) {
@@ -39,6 +41,9 @@ agent any
             //Objectname without extension
             def objectname = objectnameext.take(objectnameext.lastIndexOf('.'))
             println "Object name : ${objectname}"
+
+            def extFile = objectnameext.take(objectnameext.firstIndexOf('.')
+            println "Object name : ${extFile}"
 
             //Full Path of File
             //def fullPath = "${currentDir}/${i}"
@@ -78,10 +83,12 @@ agent any
             def encoded = src.bytes.encodeBase64()
             //println "${encoded}"
             
-            println "===================================================================================="
-
             // Check if object exists in the destination URI using the Soap Service Call
             
+            println "===================================================================================="
+            println " Check if Object Exists "
+            println "===================================================================================="
+
             def param = [:] 
             param["reportObjectAbsolutePath"] = "${decodedPath}"
                         
@@ -108,7 +115,11 @@ agent any
             env.condition = "True"
 
             if(env.condition == "True") {
-            
+
+            println "===================================================================================="
+            println "The Object Already Exists so executing the update SOAP CALL"
+            println "===================================================================================="
+
             def param1 = [:] 
             param1["reportObjectAbsolutePath"] = "${decodedPath}"
             param1["objectData"] = "${encoded}"
@@ -128,7 +139,12 @@ agent any
             
             // Create Update Soap Call
 
-            } else {
+            } else if(condition == "False"){
+            
+            println "===================================================================================="
+            println "The Object doesn't Exists so executing the upload SOAP CALL"
+            println "===================================================================================="
+            
 
             def param2 = [:] 
             param2["reportObjectAbsolutePathURL"] = "${decodedPath}"
@@ -150,8 +166,10 @@ agent any
             
             // Create Upload Soap Call
 
-
-
+            } else {
+            println "========================================================================================="
+            println "The Object Exists Soap Call resulted in Error. Please Check logs or verify the objectlist"
+            println "========================================================================================="
 
                         } 
                     }
