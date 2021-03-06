@@ -1,3 +1,5 @@
+def call () {
+script {
 String objectlist = "objectlist.txt"
 File objectlistfile = new File (objectlist)
 //println objectlistfile.text
@@ -41,7 +43,7 @@ for(String i in objectslist_list) {
 
         sleep(60000)
 
-        //unzip dir: '', glob: '', zipFile: "${dstfile}"
+        unzip dir: '', glob: '', zipFile: "${dstfile}"
 
         println "Extracting the URI or absolute path from metadata.meta"
         def metaxmlFile = getClass().getResourceAsStream("~metadata.meta")
@@ -56,11 +58,6 @@ for(String i in objectslist_list) {
 
         println "===================================================================================="
 
-
-
-
-
-
-
-
+        }
     }
+}
