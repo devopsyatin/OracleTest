@@ -80,7 +80,7 @@ agent any
             println "===================================================================================="
 
             // Check if object exists in the destination URI using the Soap Service Call
-
+            import groovy.xml.XmlUtil
             def param = [:] 
             param["reportObjectAbsolutePath"] = "${decodedPath}"
             
