@@ -121,7 +121,7 @@ agent any
             println "===================================================================================="
 
             def param1 = [:] 
-            param1["reportObjectAbsolutePath"] = "${decodedPath}"
+            param1["objectAbsolutePath"] = "${decodedPath}"
             param1["objectData"] = "${encoded}"
 
             updatexmlFile = new File("${env.currentworkdir}/updateObject.xml").text
