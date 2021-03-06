@@ -54,7 +54,7 @@ agent any
             sh 'pwd'
             sh 'ls -lrth'
             def metaxmlFile = getClass().getResourceAsStream("~metadata.meta")
-            def metadata = new XmlParser().parse(metaxmlFile)
+            def metadata = new XmlParser().parseText(metaxmlFile)
             def cdataPath = metadata.entries.entry[5].value.text()
 
               //             }
