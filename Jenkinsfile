@@ -40,36 +40,15 @@ agent any
             //Create a Temp Directory
             def tempDir = new File("${env.currentworkdir}/Temp-Directory")
             tempDir.mkdir()
-            
-            println "${tempDir}"
-            //new File("${env.currentworkdir}/${objectPath}").eachFile() {  
-            //file->println file.getAbsolutePath()
-            //}
-            //def pathDir = file.getParent("/var/lib/jenkins/workspace/OracleTestPipeline/Custom/Jenkinstest.xdoz")
-            //println "${pathDir}"
-            //sh '''
-            //env.currentworkdir=`pwd`
-            //tempDir=temp-dir
-            //mkdir $tempDir
-            //cp env.currentworkdir/${objectPath}" "${env.currentworkdir}/temp-dir/${objectnameext}"'
-            //sh 'mv "${env.currentworkdir}/temp-dir/${objectnameext}" "${env.currentworkdir}/temp-dir/${objectname}.zip"'
+            //println "${tempDir}"
+     
             println "Converting the object to ${objectname}.zip"
-            //def srcfile = new File("${objectPath}")
-            //def dstfile = new File("${objectname}.zip")
-            //dstfile << srcfile.bytes
-            sh 'tree'
             new File("${tempDir}/${objectname}.zip") << new File("${env.currentworkdir}/${objectPath}").bytes
-            //def srcStream = new File('Custom/Jenkinstest.xdoz').newDataInputStream()
-            //def dstStream = new File('Jenkinstest.zip').newDataOutputStream()
-            //dstStream << srcStream
-            //srcStream.close()
-            //dstStream.close()
-            //println "${dstfile}"
-            //sleep(60000)
-            sh 'ls -lrth'
-            sh 'tree'
-            //unzip dir: "${env.currentworkdir}/${tempDir}/", glob: '', zipFile: "${dstfile}"
 
+            //sleep(60000)
+
+            unzip dir: "${tempDir}/", glob: '', zipFile: "${tempDir}/${objectname}.zip"
+            sh 'tree'
             // dir('${tempDir}') {
             // println "Extracting the URI or absolute path from metadata.meta"
             // def metaxmlFile = getClass().getResourceAsStream("~metadata.meta")
