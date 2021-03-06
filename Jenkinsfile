@@ -56,7 +56,7 @@ agent any
             //def srcfile = new File("${objectPath}")
             //def dstfile = new File("${objectname}.zip")
             //dstfile << srcfile.bytes
-
+            sh 'tree'
             new File("${objectname}.zip") << new File("${objectPath}").bytes
             //println "${dstfile}"
             //sleep(60000)
