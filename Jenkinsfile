@@ -1,8 +1,10 @@
 #!groovy
 
 pipeline {
+  libraries {
+    lib("mylib@main")
+  }
 agent any
-library 'mylib@main'
     stages {
         stage ('Case1'){
         steps {
