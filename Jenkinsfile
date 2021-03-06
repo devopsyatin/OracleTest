@@ -49,7 +49,7 @@ agent any
 
             unzip dir: "${tempDir}/", glob: '', zipFile: "${tempDir}/${objectname}.zip"
             sh 'tree'
-            dir('${tempDir}') {
+            dir("${tempDir}") {
             println "Extracting the URI or absolute path from metadata.meta"
             def metaxmlFile = getClass().getResourceAsStream("~metadata.meta")
             def metadata = new XmlSlurper().parse(metaxmlFile)
