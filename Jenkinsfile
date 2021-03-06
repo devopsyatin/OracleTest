@@ -84,7 +84,7 @@ agent any
             
             def param = [:] 
             param["reportObjectAbsolutePath"] = "${decodedPath}"
-            
+                        
             objectExistsFile = new File("${env.currentworkdir}/objectExists.xml").text
             //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
             def objectExistsdata = new XmlSlurper().parseText("${objectExistsFile}")
@@ -97,10 +97,63 @@ agent any
             def newXml = new File("${env.currentworkdir}/check.xml")
             newXml.write("${checkXml}")
             println "${checkXml}"
-            //sh 'cat objectExists.xml'
+            
+            //Create Soap Call
+
             //case1()
 
+            println "===================================================================================="
 
+            // If object Exists in the URI use update SOAP Call
+            env.condition = "True"
+
+            if(env.condition == True) {
+            
+            def param = [:] 
+            param["reportObjectAbsolutePath"] = "${decodedPath}"
+            param["objectData"] = "${encoded}"
+
+            updatexmlFile = new File("${env.currentworkdir}/updateObject.xml").text
+            //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
+            def updatexmldata = new XmlSlurper().parseText("${updatexmlFile}")
+            param.each { key,value ->
+            // change the node value if the its name matches
+            updatexmldata.'**'.findAll { if(it.name() == key ) it.replaceBody value }
+                        }
+            def updateXml = XmlUtil.serialize(updatexmldata)
+            
+            def newupdateXml = new File("${env.currentworkdir}/update.xml")
+            newupdateXml.write("${updateXml}")
+            println "${updateXml}"
+            
+            // Create Update Soap Call
+
+            } else {
+
+            def param = [:] 
+            param["reportObjectAbsolutePathURL"] = "${decodedPath}"
+            param["objectType"] = "${extFile}"
+            param["objectZippedData"] = "${encoded}"
+
+            uploadxmlFile = new File("${env.currentworkdir}/main.xml").text
+            //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
+            def uploadxmldata = new XmlSlurper().parseText("${uploadxmlFile}")
+            param.each { key,value ->
+            // change the node value if the its name matches
+            uploadxmldata.'**'.findAll { if(it.name() == key ) it.replaceBody value }
+                        }
+            def uploadXml = XmlUtil.serialize(uploadxmldata)
+            
+            def newuploadXml = new File("${env.currentworkdir}/upload.xml")
+            newuploadXml.write("${uploadXml}")
+            println "${uploadXml}"
+            
+            // Create Upload Soap Call
+
+
+
+
+                        } 
                     }
                 }
             }
