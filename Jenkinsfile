@@ -13,7 +13,7 @@ agent any
             //objectList = readTrusted("objectlist.txt")
             //println "${objectList}"
             env.currentworkdir = sh 'pwd'
-            String objectlist = "objectlist.txt"
+            String objectlist = "${env.currentworkdir}/objectlist.txt"
             File objectlistfile = new File (objectlist)
             def objectslist_list  = objectlistfile.collect { it }
             for(String i in objectslist_list) {
