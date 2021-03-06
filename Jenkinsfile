@@ -84,7 +84,7 @@ agent any
             def param = [:] 
             param["reportObjectAbsolutePath"] = "${decodedPath}"
             
-            objectExistsFile = new File("objectExists.xml").text
+            objectExistsFile = new File("${env.currentworkdir}/objectExists.xml").text
             //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
             def objectExistsdata = new XmlSlurper().parseText("${objectExistsFile}")
             param.each { key,value ->
