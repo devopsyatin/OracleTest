@@ -42,7 +42,7 @@ agent any
             def objectname = objectnameext.take(objectnameext.lastIndexOf('.'))
             println "Object name : ${objectname}"
 
-            def extFile = objectnameext.take(objectnameext.substring(it+1))
+            def extFile = objectnameext.take(objectnameext.lastIndexOf(".") + 4)
             println "Object ext : ${extFile}"
 
             //Full Path of File
