@@ -49,7 +49,7 @@ agent any
             unzip dir: '', glob: '', zipFile: "${dstfile}"
 
             println "Extracting the URI or absolute path from metadata.meta"
-            def metaxmlFile = getClass().getResourceAsStream("~metadata.meta")
+            def metaxmlFile = getClass().getResourceAsStream("${env.currentworkdir}/~metadata.meta")
             def metadata = new XmlSlurper().parse(metaxmlFile)
             def cdataPath = metadata.entries.entry[5].value.text()
 
