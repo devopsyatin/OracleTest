@@ -35,13 +35,17 @@ agent any
             //def fullPath = "${currentDir}/${i}"
             //println "Full Path of File : ${fullPath}"
 
-            //Create a Temp Directory
-            //def tempDir = new File("Temp-Directory")
-            //tempDir.mkdir()
-            sh 'mkdir temp-dir'
-            sh 'cp "${env.currentworkdir}/${objectPath}" "${env.currentworkdir}/temp-dir/${objectnameext}"'
-            sh 'mv "${env.currentworkdir}/temp-dir/${objectnameext}" "${env.currentworkdir}/temp-dir/${objectname}.zip"'
-            println "Converting the object to ${objectname}.zip"
+            Create a Temp Directory
+            def tempDir = new File("Temp-Directory")
+            tempDir.mkdir()
+            
+            //sh '''
+            //env.currentworkdir=`pwd`
+            //tempDir=temp-dir
+            //mkdir $tempDir
+            //cp env.currentworkdir/${objectPath}" "${env.currentworkdir}/temp-dir/${objectnameext}"'
+            //sh 'mv "${env.currentworkdir}/temp-dir/${objectnameext}" "${env.currentworkdir}/temp-dir/${objectname}.zip"'
+            //println "Converting the object to ${objectname}.zip"
             //def srcfile = new File("${env.currentworkdir}/${objectPath}")
             //def dstfile = new File("${env.currentworkdir}/${tempDir}/${objectname}.zip")
             //dstfile << srcfile.bytes
