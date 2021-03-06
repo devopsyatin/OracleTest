@@ -84,8 +84,9 @@ agent any
             def param = [:] 
             param["reportObjectAbsolutePath"] = "${decodedPath}"
             
-            def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
-            def objectExistsdata = new XmlSlurper().parse(objectExistsFile)
+            objectExistsFile = new File("objectExists.xml").text
+            //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
+            def objectExistsdata = new XmlSlurper().parseText("${objectExistsFile}")
             param.each { key,value ->
             // change the node value if the its name matches
             objectExistsdata.'**'.findAll { if(it.name() == key ) it.replaceBody value }
