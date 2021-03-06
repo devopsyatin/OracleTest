@@ -2,7 +2,7 @@
    <soapenv:Header/>
    <soapenv:Body>
       <v2:updateObject>
-         <v2:objectAbsolutePath>?</v2:objectAbsolutePath>
+         <v2:objectAbsolutePath></v2:objectAbsolutePath>
          <v2:objectData>cid:1303356848548</v2:objectData>
          <v2:userID>SVC-SAAS-DEPLOYMENTS</v2:userID>
          <v2:password>Oracle123</v2:password>
