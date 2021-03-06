@@ -23,13 +23,15 @@ agent any
             def objectslist_list  = objectlistfile.collect { it }
 
             println "===================================================================================="
-            println "Processing the Objects in a FIFO manner"
+            println "Start the Processing of objects in FIFO manner"
             println "===================================================================================="
 
             // Loop for processing the objects in a FIFO manner
             for(String i in objectslist_list) {
             //println(i);
-            println "Processing Object ${i}"
+            println "===================================================================================="
+            println "Processing the Object ${i}"
+            println "===================================================================================="
             def objectPath = "${i}"
             println "Object Path of File : ${objectPath}"
 
@@ -108,8 +110,6 @@ agent any
             //Create Soap Call
 
             //case1()
-
-            println "===================================================================================="
 
             // If object Exists in the URI use update SOAP Call
             env.condition = "True"
