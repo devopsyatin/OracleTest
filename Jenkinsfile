@@ -54,7 +54,7 @@ agent any
             //sh 'mv "${env.currentworkdir}/temp-dir/${objectnameext}" "${env.currentworkdir}/temp-dir/${objectname}.zip"'
             println "Converting the object to ${objectname}.zip"
             def srcfile = new File("${objectPath}")
-            def dstfile = new File("${objectname}".zip)
+            def dstfile = new File("${objectname}.zip")
             dstfile.bytes << srcfile.bytes
 
             //println "${dstfile}"
