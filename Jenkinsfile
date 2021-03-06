@@ -87,7 +87,7 @@ agent any
             
             objectExistsFile = new File("${env.currentworkdir}/objectExists.xml").text
             //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
-            def objectExistsdata = new XmlSlurper().parse("${objectExistsFile}")
+            def objectExistsdata = new XmlParser().parse("${objectExistsFile}")
             param.each { key,value ->
             // change the node value if the its name matches
             objectExistsdata.'**'.findAll { if(it.name() == key ) it.replaceBody value }
