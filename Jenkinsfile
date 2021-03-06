@@ -43,7 +43,7 @@ agent any
             println "Object name : ${objectname}"
 
             def extFile = objectnameext.take(objectnameext.lastIndexOf('.').with {it != -1 ? objectnameext.substring(it+1):''})
-            println "Object name : ${extFile}"
+            println "Object ext : ${extFile}"
 
             //Full Path of File
             //def fullPath = "${currentDir}/${i}"
