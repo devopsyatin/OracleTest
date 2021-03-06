@@ -44,8 +44,8 @@ agent any
             //new File("${env.currentworkdir}/${objectPath}").eachFile() {  
             //file->println file.getAbsolutePath()
             //}
-            def pathDir = file.getParent("/var/lib/jenkins/workspace/OracleTestPipeline/Custom/Jenkinstest.xdoz")
-            println "${pathDir}"
+            //def pathDir = file.getParent("/var/lib/jenkins/workspace/OracleTestPipeline/Custom/Jenkinstest.xdoz")
+            //println "${pathDir}"
             //sh '''
             //env.currentworkdir=`pwd`
             //tempDir=temp-dir
@@ -53,9 +53,9 @@ agent any
             //cp env.currentworkdir/${objectPath}" "${env.currentworkdir}/temp-dir/${objectnameext}"'
             //sh 'mv "${env.currentworkdir}/temp-dir/${objectnameext}" "${env.currentworkdir}/temp-dir/${objectname}.zip"'
             println "Converting the object to ${objectname}.zip"
-            //def srcfile = new File(objectPath)
-            //def dstfile = new File(tempDir/objectname.zip)
-            //dstfile << srcfile.bytes
+            def srcfile = new File("${objectPath}")
+            def dstfile = new File("${objectname}".zip)
+            dstfile.bytes << srcfile.bytes
 
             //println "${dstfile}"
             //sleep(60000)
