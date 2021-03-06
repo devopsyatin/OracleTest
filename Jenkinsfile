@@ -57,7 +57,7 @@ agent any
             //def dstfile = new File("${objectname}.zip")
             //dstfile << srcfile.bytes
             sh 'tree'
-            new File('/var/lib/jenkins/workspace/OracleTestPipeline/Temp-Directory/Jenkinstest.xdoz') << new File('/var/lib/jenkins/workspace/OracleTestPipeline/Custom/Jenkinstest.xdoz').bytes
+            new File("${env.currentworkdir}/${tempDir}/${objectnameext}") << new File("${env.currentworkdir}/${objectPath}').bytes
             //def srcStream = new File('Custom/Jenkinstest.xdoz').newDataInputStream()
             //def dstStream = new File('Jenkinstest.zip').newDataOutputStream()
             //dstStream << srcStream
