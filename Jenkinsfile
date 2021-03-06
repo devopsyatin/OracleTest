@@ -12,9 +12,15 @@ agent any
             checkout scm
             objectList = readTrusted("objectlist.txt")
             println "${objectList}"
+            for(i in objectList) {
+        //println(i);
+        println "Processing Object ${i}"
+            
+            
             //case1()
-          }
-        }
+                    }
+                }
+            }
         }
     }
 }
