@@ -41,17 +41,20 @@ agent any
 
             println "Converting the object to ${objectname}.zip"
             def srcfile = new File("${env.currentworkdir}/${objectPath}")
-            def dstfile = new File("${env.currentworkdir}/${objectname}.zip")
+            def dstfile = new File("${env.currentworkdir}/${tempDir}/${objectname}.zip")
             dstfile << srcfile.bytes
 
             //sleep(60000)
+            
+            unzip dir: "${env.currentworkdir}/${tempDir}", glob: '', zipFile: "${dstfile}"
 
-            unzip dir: '', glob: '', zipFile: "${dstfile}"
-
+            dir('${tempDir}') {
             println "Extracting the URI or absolute path from metadata.meta"
-            def metaxmlFile = getClass().getResourceAsStream("${env.currentworkdir}/~metadata.meta")
+            def metaxmlFile = getClass().getResourceAsStream("${env.currentworkdir}/${tempDir}/~metadata.meta")
             def metadata = new XmlSlurper().parse(metaxmlFile)
             def cdataPath = metadata.entries.entry[5].value.text()
+
+                          }
 
             println "The Encoded URI of File : ${cdataPath}"
 
