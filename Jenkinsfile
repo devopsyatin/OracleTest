@@ -44,7 +44,7 @@ agent any
             //new File("${env.currentworkdir}/${objectPath}").eachFile() {  
             //file->println file.getAbsolutePath()
             //}
-            def pathDir = path.getParent("${env.currentworkdir}/${objectPath}")
+            def pathDir = path.getParent("/var/lib/jenkins/workspace/OracleTestPipeline/Custom/Jenkinstest.xdoz")
             println "${pathDir}"
             //sh '''
             //env.currentworkdir=`pwd`
