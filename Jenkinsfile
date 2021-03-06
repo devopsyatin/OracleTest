@@ -109,14 +109,14 @@ agent any
 
             if(env.condition == True) {
             
-            def param = [:] 
-            param["reportObjectAbsolutePath"] = "${decodedPath}"
-            param["objectData"] = "${encoded}"
+            def param1 = [:] 
+            param1["reportObjectAbsolutePath"] = "${decodedPath}"
+            param1["objectData"] = "${encoded}"
 
             updatexmlFile = new File("${env.currentworkdir}/updateObject.xml").text
             //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
             def updatexmldata = new XmlSlurper().parseText("${updatexmlFile}")
-            param.each { key,value ->
+            param1.each { key,value ->
             // change the node value if the its name matches
             updatexmldata.'**'.findAll { if(it.name() == key ) it.replaceBody value }
                         }
@@ -130,15 +130,15 @@ agent any
 
             } else {
 
-            def param = [:] 
-            param["reportObjectAbsolutePathURL"] = "${decodedPath}"
-            param["objectType"] = "${extFile}"
-            param["objectZippedData"] = "${encoded}"
+            def param2 = [:] 
+            param2["reportObjectAbsolutePathURL"] = "${decodedPath}"
+            param2["objectType"] = "${extFile}"
+            param2["objectZippedData"] = "${encoded}"
 
             uploadxmlFile = new File("${env.currentworkdir}/main.xml").text
             //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
             def uploadxmldata = new XmlSlurper().parseText("${uploadxmlFile}")
-            param.each { key,value ->
+            param2.each { key,value ->
             // change the node value if the its name matches
             uploadxmldata.'**'.findAll { if(it.name() == key ) it.replaceBody value }
                         }
