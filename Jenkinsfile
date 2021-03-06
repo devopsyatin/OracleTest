@@ -9,8 +9,8 @@ agent any
         stage ('Case1'){
         steps {
           script {
-
-case1()
+            sh "ls -lrth"
+            case1()
           }
         }
         }
