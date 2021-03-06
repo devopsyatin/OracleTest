@@ -35,9 +35,9 @@ agent any
             //def fullPath = "${currentDir}/${i}"
             //println "Full Path of File : ${fullPath}"
 
-            Create a Temp Directory
-            def tempDir = new File("Temp-Directory")
-            tempDir.mkdir()
+            //Create a Temp Directory
+            //def tempDir = new File("Temp-Directory")
+            //tempDir.mkdir()
             
             //sh '''
             //env.currentworkdir=`pwd`
