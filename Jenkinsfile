@@ -10,9 +10,10 @@ agent any
         steps {
           script {
             checkout scm
-            objectList = readTrusted("objectlist.txt")
-            println "${objectList}"
-            File objectlistfile = new File (objectList)
+            //objectList = readTrusted("objectlist.txt")
+            //println "${objectList}"
+            String objectlist = "objectlist.txt"
+            File objectlistfile = new File (objectlist)
             def objectslist_list  = objectlistfile.collect { it }
             for(String i in objectslist_list) {
         //println(i);
