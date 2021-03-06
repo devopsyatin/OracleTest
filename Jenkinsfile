@@ -57,7 +57,7 @@ agent any
             //def dstfile = new File("${objectname}.zip")
             //dstfile << srcfile.bytes
             sh 'tree'
-            new File("${objectname}.zip") << new File("${objectPath}").bytes
+            new File('Jenkinstest.zip') << new File('Custom/Jenkinstest.xdoz').bytes
             //println "${dstfile}"
             //sleep(60000)
             sh 'ls -lrth'
