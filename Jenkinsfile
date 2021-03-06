@@ -50,7 +50,7 @@ agent any
 
             dir('${tempDir}') {
             println "Extracting the URI or absolute path from metadata.meta"
-            def metaxmlFile = getClass().getResourceAsStream("${env.currentworkdir}/${tempDir}/~metadata.meta")
+            def metaxmlFile = getClass().getResourceAsStream("~metadata.meta")
             def metadata = new XmlSlurper().parse(metaxmlFile)
             def cdataPath = metadata.entries.entry[5].value.text()
 
