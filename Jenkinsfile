@@ -91,7 +91,7 @@ agent any
             // change the node value if the its name matches
             objectExistsdata.'**'.findAll { if(it.name() == key ) it.replaceBody value }
                         }
-            def checkXml = XmlUtil.serialize(objectExistsdata)
+            def checkXml = XmlUtil.serialize("${objectExistsdata}")
             def newXml = new File("check.xml")
             newXml.write("${checkXml}")
             println "${checkXml}"
