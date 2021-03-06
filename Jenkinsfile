@@ -1,4 +1,5 @@
 #!groovy
+import java.nio.file.Path
 
 pipeline {
   libraries {
