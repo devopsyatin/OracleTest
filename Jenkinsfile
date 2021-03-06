@@ -12,6 +12,7 @@ agent any
             checkout scm
             //objectList = readTrusted("objectlist.txt")
             //println "${objectList}"
+            env.currentworkdir = sh 'pwd'
             String objectlist = "objectlist.txt"
             File objectlistfile = new File (objectlist)
             def objectslist_list  = objectlistfile.collect { it }
