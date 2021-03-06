@@ -90,7 +90,7 @@ agent any
             def objectExistsdata = new XmlParser().parseText("${objectExistsFile}")
             param.each { key,value ->
             // change the node value if the its name matches
-            objectExistsdata.'**'.findAll { if(it.name() == key ) it.replaceBody value }
+            objectExistsdata.'*'.findAll { if(it.name() == key ) it.replaceBody value }
                         }
             def checkXml = XmlUtil.serialize(objectExistsdata)
             
