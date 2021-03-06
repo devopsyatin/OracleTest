@@ -93,8 +93,9 @@ agent any
             objectExistsdata.'**'.findAll { if(it.name() == key ) it.replaceBody value }
                         }
             def checkXml = XmlUtil.serialize(objectExistsdata)
-            def newXml = new File("check.xml")
-            newXml.write("${checkXml}")
+            
+            //def newXml = new File("check.xml")
+            //newXml.write("${checkXml}")
             println "${checkXml}"
 
             //case1()
