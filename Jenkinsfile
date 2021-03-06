@@ -43,8 +43,9 @@ agent any
             //println "${tempDir}"
      
             println "Converting the object to ${objectname}.zip"
-            new File("${tempDir}/${objectname}.zip") << new File("${env.currentworkdir}/${objectPath}").bytes
-
+            def dst = new File("${tempDir}/${objectname}.zip") 
+            def src = new File("${env.currentworkdir}/${objectPath}")
+            dst << src.bytes
             //sleep(60000)
 
             unzip dir: "${tempDir}", glob: '', zipFile: "${tempDir}/${objectname}.zip"
@@ -68,7 +69,12 @@ agent any
 
             println "===================================================================================="
 
+            def encoded = src.bytes.encodeBase64()
+            println "${encoded}"
+            
             //case1()
+
+
                     }
                 }
             }
