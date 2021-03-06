@@ -49,21 +49,21 @@ agent any
 
             unzip dir: "${tempDir}/", glob: '', zipFile: "${tempDir}/${objectname}.zip"
             sh 'tree'
-            // dir('${tempDir}') {
-            // println "Extracting the URI or absolute path from metadata.meta"
-            // def metaxmlFile = getClass().getResourceAsStream("~metadata.meta")
-            // def metadata = new XmlSlurper().parse(metaxmlFile)
-            // def cdataPath = metadata.entries.entry[5].value.text()
+            //dir('${tempDir}') {
+            println "Extracting the URI or absolute path from metadata.meta"
+            def metaxmlFile = getClass().getResourceAsStream("${tempDir}/~metadata.meta")
+            def metadata = new XmlSlurper().parse(metaxmlFile)
+            def cdataPath = metadata.entries.entry[5].value.text()
 
             //               }
 
-            // println "The Encoded URI of File : ${cdataPath}"
+             println "The Encoded URI of File : ${cdataPath}"
 
-            // //Decoding the URI of file path
-            // def decodedPath = URLDecoder.decode(cdataPath)
-            // println "The Decoded URI of File : ${decodedPath}"
+            // Decoding the URI of file path
+            def decodedPath = URLDecoder.decode(cdataPath)
+            println "The Decoded URI of File : ${decodedPath}"
 
-            // println "===================================================================================="
+            println "===================================================================================="
 
             //case1()
                     }
