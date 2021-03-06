@@ -49,7 +49,7 @@ agent any
 
             unzip dir: "${tempDir}", glob: '', zipFile: "${tempDir}/${objectname}.zip"
             sh 'tree'
-            dir("${tempDir}") {
+            //dir("${tempDir}") {
             println "Extracting the URI or absolute path from metadata.meta"
             sh 'pwd'
             sh 'ls -lrth'
@@ -58,7 +58,7 @@ agent any
             def response = new XmlSlurper().parseText("${metaxmlfile}")
             def cdataPath = response.entries.entry[5].value.text()
 
-                         }
+            //             }
 
             println "The Encoded URI of File : ${cdataPath}"
 
