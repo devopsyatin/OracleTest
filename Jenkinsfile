@@ -107,7 +107,7 @@ agent any
             // If object Exists in the URI use update SOAP Call
             env.condition = "True"
 
-            if(env.condition == True) {
+            if(env.condition == "True") {
             
             def param1 = [:] 
             param1["reportObjectAbsolutePath"] = "${decodedPath}"
