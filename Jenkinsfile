@@ -39,6 +39,9 @@ agent any
             def tempDir = new File("${env.currentworkdir}/Temp-Directory")
             tempDir.mkdir()
             
+            //new File("").eachFile() {  
+            //file->println file.getAbsolutePath()
+
             //sh '''
             //env.currentworkdir=`pwd`
             //tempDir=temp-dir
@@ -46,8 +49,8 @@ agent any
             //cp env.currentworkdir/${objectPath}" "${env.currentworkdir}/temp-dir/${objectnameext}"'
             //sh 'mv "${env.currentworkdir}/temp-dir/${objectnameext}" "${env.currentworkdir}/temp-dir/${objectname}.zip"'
             println "Converting the object to ${objectname}.zip"
-            def srcfile = new File("${objectPath}")
-            def dstfile = new File("${tempDir}/${objectname}.zip")
+            def srcfile = new File(objectPath)
+            def dstfile = new File(tempDir/objectname.zip)
             dstfile << srcfile.bytes
 
             //println "${dstfile}"
