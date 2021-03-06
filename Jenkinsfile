@@ -10,26 +10,32 @@ agent any
     stage ('Case1'){
       steps {
         script {
-          checkout scm
+            checkout scm
             //objectList = readTrusted("objectlist.txt")
             //println "${objectList}"
             env.currentworkdir = pwd()
             println "${env.currentworkdir}"
+
+            // Reading the objectlist.txt for no of objects
             String objectlist = "${env.currentworkdir}/objectlist.txt"
             File objectlistfile = new File (objectlist)
             def objectslist_list  = objectlistfile.collect { it }
+
+            println "===================================================================================="
+
+            // Loop for processing the objects in a FIFO manner
             for(String i in objectslist_list) {
             //println(i);
             println "Processing Object ${i}"
             def objectPath = "${i}"
             println "Object Path of File : ${objectPath}"
 
-            //Objectname with ext
+            //Objectname with extension
             File f = new File(objectPath)
             def objectnameext = f.getName()
             println "Object name with Ext : ${objectnameext}"
 
-            //Objectname without ext
+            //Objectname without extension
             def objectname = objectnameext.take(objectnameext.lastIndexOf('.'))
             println "Object name : ${objectname}"
 
@@ -46,8 +52,9 @@ agent any
             def dst = new File("${tempDir}/${objectname}.zip") 
             def src = new File("${env.currentworkdir}/${objectPath}")
             dst << src.bytes
-            //sleep(60000)
 
+            //Extracting the xdoz file in Temp Dir
+            println "Extracting the xdoz file in Temp Dir to process the object"
             unzip dir: "${tempDir}", glob: '', zipFile: "${tempDir}/${objectname}.zip"
             sh 'tree'
             //dir("${tempDir}") {
@@ -67,11 +74,27 @@ agent any
             def decodedPath = URLDecoder.decode(cdataPath)
             println "The Decoded URI of File : ${decodedPath}"
 
+            def encoded = src.bytes.encodeBase64()
+            //println "${encoded}"
+            
             println "===================================================================================="
 
-            def encoded = src.bytes.encodeBase64()
-            println "${encoded}"
+            // Check if object exists in the destination URI using the Soap Service Call
+
+            def param = [:] 
+            param["reportObjectAbsolutePath"] = "${decodedPath}"
             
+            def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
+            def objectExistsdata = new XmlSlurper().parse(objectExistsFile)
+            param.each { key,value ->
+            // change the node value if the its name matches
+            objectExistsdata.'**'.findAll { if(it.name() == key ) it.replaceBody value }
+                        }
+            def checkXml = XmlUtil.serialize(objectExistsdata)
+            def newXml = new File("check.xml")
+            newXml.write("${checkXml}")
+            println "${checkXml}"
+
             //case1()
 
 
