@@ -44,9 +44,11 @@ agent any
             def dstfile = new File("${env.currentworkdir}/${tempDir}/${objectname}.zip")
             dstfile << srcfile.bytes
 
+            println "${dstfile}"
             //sleep(60000)
-            
-            unzip dir: "${env.currentworkdir}/${tempDir}", glob: '', zipFile: "${dstfile}"
+            sh 'ls -lrth'
+            sh 'tree'
+            unzip dir: "${env.currentworkdir}/${tempDir}/", glob: '', zipFile: "${dstfile}"
 
             dir('${tempDir}') {
             println "Extracting the URI or absolute path from metadata.meta"
