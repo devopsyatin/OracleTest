@@ -40,8 +40,8 @@ agent any
             tempDir.mkdir()
 
             println "Converting the object to ${objectname}.zip"
-            def srcfile = new File("${objectPath}")
-            def dstfile = new File("${objectname}.zip")
+            def srcfile = new File("${env.currentworkdir}/${objectPath}")
+            def dstfile = new File("${env.currentworkdir}/${objectname}.zip")
             dstfile << srcfile.bytes
 
             //sleep(60000)
