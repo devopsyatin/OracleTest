@@ -1,0 +1,49 @@
+#!groovy
+import java.io.*
+import groovy.xml.XmlUtil
+
+pipeline {
+  libraries {
+    lib("mylib@main")
+  }
+agent any
+  stages {
+    stage ('Case1'){
+      steps {
+        script {
+            checkout scm
+            
+            println "===================================================================================="
+            println " Check the soap call "
+            println "===================================================================================="
+
+            def param = [:] 
+            param["sCountryISOCode"] = "IN"
+
+            objectExistsFile = new File("${env.currentworkdir}/soapcall.xml").text
+            //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
+            def objectExistsdata = new XmlSlurper().parseText("${objectExistsFile}")
+            param.each { key,value ->
+            // change the node value if the its name matches
+            objectExistsdata.'**'.findAll { if(it.name() == key ) it.replaceBody value }
+                        }
+            def checkXml = XmlUtil.serialize(objectExistsdata)
+            
+            def newXml = new File("${env.currentworkdir}/check.xml")
+            newXml.write("${checkXml}")
+            println "${checkXml}"
+            
+            //Create Soap Call
+
+            httpRequest customHeaders: [[maskValue: false, name: '', value: '']], ignoreSslErrors: true, outputFile: 'output.xml', requestBody: '"${checkXml}"', responseHandle: 'NONE', url: 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso', wrapAsMultipart: false
+
+            println "${output.xml}"            
+                        } 
+                    }
+                }
+            }
+        }
+
+            
+            
+            
