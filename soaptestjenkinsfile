@@ -37,8 +37,8 @@ agent any
             
             //Create Soap Call
 
-            httpRequest customHeaders: [[maskValue: false, name: '', value: '']], ignoreSslErrors: true, outputFile: 'output.xml', requestBody: "${checkXml}", responseHandle: 'NONE', url: 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso', wrapAsMultipart: false
-
+            //httpRequest customHeaders: [[maskValue: false, name: '', value: '']], ignoreSslErrors: true, outputFile: 'output.xml', requestBody: "${checkXml}", responseHandle: 'NONE', url: 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso', wrapAsMultipart: false
+            httpRequest customHeaders: [[maskValue: false, name: '', value: '']], ignoreSslErrors: true, outputFile: 'output.xml', requestBody: '"${checkXml}"', url: 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso', wrapAsMultipart: false
             println "${output.xml}"            
                         } 
                     }
