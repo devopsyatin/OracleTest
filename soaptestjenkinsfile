@@ -40,14 +40,7 @@ agent any
             //httpRequest customHeaders: [[maskValue: false, name: '', value: '']], ignoreSslErrors: true, outputFile: 'output.xml', requestBody: "${checkXml}", responseHandle: 'NONE', url: 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso', wrapAsMultipart: false
             //httpRequest customHeaders: [[maskValue: false, name: '', value: '']], ignoreSslErrors: true, outputFile: 'output.xml', requestBody: '"${checkXml}"', url: 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso', wrapAsMultipart: false
             
-            httpRequest customHeaders: [[maskValue: false, name: '', value: '']], ignoreSslErrors: true, outputFile: 'output.xml', requestBody: '''<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">
-   <soapenv:Header/>
-   <soapenv:Body>
-      <web:FullCountryInfo>
-         <web:sCountryISOCode>IN</web:sCountryISOCode>
-      </web:FullCountryInfo>
-   </soapenv:Body>
-</soapenv:Envelope>''', url: 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso', validResponseCodes: '100:400', wrapAsMultipart: false
+            sh 'curl -k -v --header "Content-Type: text/xml;charset=UTF-8" -data soapcall.xml http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso'
 
             //println "${output.xml}"            
 
