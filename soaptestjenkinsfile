@@ -3,9 +3,6 @@ import java.io.*
 import groovy.xml.XmlUtil
 
 pipeline {
-  libraries {
-    lib("mylib@main")
-  }
 agent any
   stages {
     stage ('Case1'){
@@ -16,6 +13,8 @@ agent any
             println "===================================================================================="
             println " Check the soap call "
             println "===================================================================================="
+            sh 'pwd'
+            sh 'ls -lrth'
 
             def param = [:] 
             param["sCountryISOCode"] = "IN"
