@@ -47,7 +47,7 @@ agent any
          <web:sCountryISOCode>IN</web:sCountryISOCode>
       </web:FullCountryInfo>
    </soapenv:Body>
-</soapenv:Envelope>''', url: 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso', wrapAsMultipart: false
+</soapenv:Envelope>''', url: 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso', validResponseCodes: '100:400', wrapAsMultipart: false
 
             println "${output.xml}"            
                         } 
