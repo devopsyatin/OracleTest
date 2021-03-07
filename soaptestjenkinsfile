@@ -19,26 +19,36 @@ agent any
             env.currentworkdir = pwd()
             println "${env.currentworkdir}"
 
-            def param = [:] 
-            param["sCountryISOCode"] = "IN"
+            // def param = [:] 
+            // param["sCountryISOCode"] = "IN"
 
-            objectExistsFile = new File("${env.currentworkdir}/soapcall.xml").text
-            //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
-            def objectExistsdata = new XmlSlurper().parseText("${objectExistsFile}")
-            param.each { key,value ->
-            // change the node value if the its name matches
-            objectExistsdata.'**'.findAll { if(it.name() == key ) it.replaceBody value }
-                        }
-            def checkXml = XmlUtil.serialize(objectExistsdata)
+            // objectExistsFile = new File("${env.currentworkdir}/soapcall.xml").text
+            // //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
+            // def objectExistsdata = new XmlSlurper().parseText("${objectExistsFile}")
+            // param.each { key,value ->
+            // // change the node value if the its name matches
+            // objectExistsdata.'**'.findAll { if(it.name() == key ) it.replaceBody value }
+            //             }
+            // def checkXml = XmlUtil.serialize(objectExistsdata)
             
-            def newXml = new File("${env.currentworkdir}/check.xml")
-            newXml.write("${checkXml}")
-            println "${checkXml}"
+            // def newXml = new File("${env.currentworkdir}/check.xml")
+            // newXml.write("${checkXml}")
+            // println "${checkXml}"
             
             //Create Soap Call
 
             //httpRequest customHeaders: [[maskValue: false, name: '', value: '']], ignoreSslErrors: true, outputFile: 'output.xml', requestBody: "${checkXml}", responseHandle: 'NONE', url: 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso', wrapAsMultipart: false
-            httpRequest customHeaders: [[maskValue: false, name: '', value: '']], ignoreSslErrors: true, outputFile: 'output.xml', requestBody: '"${checkXml}"', url: 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso', wrapAsMultipart: false
+            //httpRequest customHeaders: [[maskValue: false, name: '', value: '']], ignoreSslErrors: true, outputFile: 'output.xml', requestBody: '"${checkXml}"', url: 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso', wrapAsMultipart: false
+            
+            httpRequest customHeaders: [[maskValue: false, name: '', value: '']], ignoreSslErrors: true, outputFile: 'output.xml', requestBody: '''<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.oorsprong.org/websamples.countryinfo">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:FullCountryInfo>
+         <web:sCountryISOCode>IN</web:sCountryISOCode>
+      </web:FullCountryInfo>
+   </soapenv:Body>
+</soapenv:Envelope>''', url: 'http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso', wrapAsMultipart: false
+
             println "${output.xml}"            
                         } 
                     }
