@@ -33,7 +33,7 @@ agent any
             
             def newXml = new File("${env.currentworkdir}/check.xml")
             newXml.write("${checkXml}")
-            println "${checkXml}".tostring
+            println "${checkXml}"
             
             //Create Soap Call
 
