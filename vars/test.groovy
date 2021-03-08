@@ -34,12 +34,12 @@ else if ("${extension}" == "iar") {
 def reportflag = new File('objectlist_reports.txt').exists()
 def oicflag = new File('objectlist_oic.txt').exists()
 //def bothflag =  (new File('objectlist_oic.txt').exists() && new File('objectlist_oic.txt').exists())
-if ("${reportflag}" == "True") {
-    int c = 1
-} else if ("${oicflag}" == "True") {
-    int c = 2
-} else if (("${reportflag}" == "True") && ("${oicflag}" == "True")) {
-    int c = 3
+if (reportflag == "True") {
+    c = 1
+} else if (oicflag == "True") {
+    c = 2
+} else if ((reportflag == "True") && (oicflag == "True")) {
+    c = 3
 } else {
     println "Only files with ext xdoz, xdmz & iar are allowed in this pipeline"
 }
