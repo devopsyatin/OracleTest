@@ -36,10 +36,10 @@ println "${reportflag}"
 oicflag = new File('objectlist_oic.txt').exists()
 println "${oicflag}"
 //def bothflag =  (new File('objectlist_oic.txt').exists() && new File('objectlist_oic.txt').exists())
-if ("${reportflag}" == "true") {
+if (("${reportflag}" == "true") && ("${oicflag}" == "false")) {
     println "report file exists"
      num = 1;
-} else if ("${oicflag}" == "true") {
+} else if (("${reportflag}" == "false") && ("${oicflag}" == "true") {
     println "oic file exists"
     num = 2;
 } else if (("${reportflag}" == "true") && ("${oicflag}" == "true")) {
@@ -52,14 +52,14 @@ if ("${reportflag}" == "true") {
 switch(num) {
     case 1:
         println ("Value of Case is 1");
-        //break;
+        break;
     case 2:
         println ("Value of Case is 2");
-        //break;
+        break;
     case 3:
         println ("Value of Case is 3");
-        //break;
+        break;
     default: 
         println("The value is unknown"); 
-        //break; 
+        break; 
 }
