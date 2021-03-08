@@ -2,7 +2,7 @@
 //env.currentworkdir = pwd()
 //println "${env.currentworkdir}"
 String objectlist = new File ('C:/Users/Yatin/Desktop/github/OracleTest/objectlist.txt').text
-def objectslist_list  = objectlistfile.collect { it }
+def objectslist_list  = objectlist.collect { it }
 println "${objectslist_list}"
 
 for(String j in objectslist_list) {
