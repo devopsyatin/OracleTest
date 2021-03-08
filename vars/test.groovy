@@ -31,15 +31,18 @@ else if ("${extension}" == "iar") {
 }
 
 }
-if (new File('objectlist_reports.txt').exists() == "True") {
+def reportflag = new File('objectlist_reports.txt').exists()
+def oicflag = new File('objectlist_oic.txt').exists()
+//def bothflag =  (new File('objectlist_oic.txt').exists() && new File('objectlist_oic.txt').exists())
+if ("${reportflag}" == "True") {
     int c = 1
-} else if (new File('objectlist_oic.txt').exists() == "True") {
+} else if ("${oicflag}" == "True") {
     int c = 2
-} else if ((new File('objectlist_oic.txt').exists() == "True") && (new File('objectlist_reports.txt').exists() == "True")) {
+} else if (("${reportflag}" == "True") && ("${oicflag}" == "True")) {
     int c = 3
-}// else {
-   // println "Only files with ext xdoz, xdmz & iar are allowed in this pipeline"
-//}
+} else {
+    println "Only files with ext xdoz, xdmz & iar are allowed in this pipeline"
+}
 
 switch(c) {
     case 1:
