@@ -31,8 +31,10 @@ else if ("${extension}" == "iar") {
 }
 
 }
-def reportflag = new File('objectlist_reports.txt').exists()
-def oicflag = new File('objectlist_oic.txt').exists()
+reportflag = new File('objectlist_reports.txt').exists()
+println "${reportflag}"
+oicflag = new File('objectlist_oic.txt').exists()
+println "${oicflag}"
 //def bothflag =  (new File('objectlist_oic.txt').exists() && new File('objectlist_oic.txt').exists())
 if (reportflag == "True") {
     c = 1
