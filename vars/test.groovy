@@ -41,7 +41,7 @@ if (new File('objectlist_reports.txt').exists() == "True") {
    // println "Only files with ext xdoz, xdmz & iar are allowed in this pipeline"
 //}
 
-switch (c) {
+switch(c) {
     case 1:
         println ("Value of Case is 1");
         break;
