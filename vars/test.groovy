@@ -28,9 +28,7 @@ else if ("${extension}" == "iar") {
     //reportsfile.write "${j}"
     oicFile.append("${j}\n")
     println oicFile.text
-
 }
 
-
-
 }
+println new File('objectlist_oic.txt').exists()
