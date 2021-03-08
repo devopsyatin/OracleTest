@@ -10,7 +10,7 @@ File objectlistfile = new File (objectlist)
 def objectslist_list  = objectlistfile.collect { it }
 
 
-for(String j in objectslist_list) {
+for(j in objectslist_list) {
 //println "${j}"
 File f = new File(j)
 def objectnameext = f.getName()
