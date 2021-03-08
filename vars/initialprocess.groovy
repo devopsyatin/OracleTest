@@ -3,15 +3,15 @@ import groovy.xml.XmlUtil
 
 def call () {
 script {
-            checkout scm
+             checkout scm
              //objectList = readTrusted("objectlist.txt")
              //println "${objectList}"
              env.currentworkdir = pwd()
              println "${env.currentworkdir}"
 
              // Reading the objectlist.txt for no of objects
-             String objectlist = "${env.currentworkdir}/objectlist.txt"
-             File objectlistfile = new File (objectlist)
+             String objectlist_reports = "${env.currentworkdir}/objectlist_reports.txt"
+             File objectlistfile = new File (objectlist_reports)
              def objectslist_list  = objectlistfile.collect { it }
 
              println "===================================================================================="

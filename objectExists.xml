@@ -3,8 +3,8 @@
    <soapenv:Body>
       <v2:objectExist>
          <v2:reportObjectAbsolutePath></v2:reportObjectAbsolutePath>
-         <v2:userID>SVC-SAAS-DEPLOYMENTS</v2:userID>
-         <v2:password>Oracle123</v2:password>
+         <v2:userID></v2:userID>
+         <v2:password></v2:password>
       </v2:objectExist>
    </soapenv:Body>
 </soapenv:Envelope>
