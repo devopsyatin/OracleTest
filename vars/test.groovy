@@ -37,16 +37,16 @@ oicflag = new File('objectlist_oic.txt').exists()
 println "${oicflag}"
 //def bothflag =  (new File('objectlist_oic.txt').exists() && new File('objectlist_oic.txt').exists())
 if ("${reportflag}" == "true") {
-    def c = 1
+    def case = 1
 } else if ("${oicflag}" == "true") {
-    def c = 2
+    def case = 2
 } else if (("${reportflag}" == "true") && ("${oicflag}" == "true")) {
-    def c = 3
+    def case = 3
 } else {
     println "Only files with ext xdoz, xdmz & iar are allowed in this pipeline"
 }
 
-switch(c) {
+switch(case) {
     case 1:
         println ("Value of Case is 1");
         break;
