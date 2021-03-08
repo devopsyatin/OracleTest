@@ -53,9 +53,12 @@ switch(num) {
     case 1:
     case 3:
         println ("Value of Case is 1");
+        if (num == 3){
+         println ("Go to case 2")   
+        }else {
         break;
+        }
     case 2:
-    case 3:
         println ("Value of Case is 2");
         break; 
 }
