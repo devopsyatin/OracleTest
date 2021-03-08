@@ -15,10 +15,12 @@ println "${j}"
 File f = new File(j)
 def objectnameext = f.getName()
 def extension = objectnameext.substring(objectnameext.lastIndexOf('.') + 1)
-println "${extension}"
+//println "${extension}"
 
 if ( ("${extension}" == "xdoz") || ("${extension}" == "xdmz") ) {
-    println "${j}"
+    File reportsfile = new File("objectlist_reports.txt")
+    reportsfile.append("${j}\n")
+    println reportsfile.text
 
 
 }
