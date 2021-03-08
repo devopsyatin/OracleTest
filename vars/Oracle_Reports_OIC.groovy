@@ -74,6 +74,7 @@ stages {
                     case 1:
                     case 3:
                         println ("Value of Case is 1");
+                        initialprocess();
                         if (num == 3){
                         println ("Go to case 2")   
                         }else {

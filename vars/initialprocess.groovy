@@ -11,15 +11,15 @@ script {
 
              // Reading the objectlist.txt for no of objects
              String objectlist_reports = "${env.currentworkdir}/objectlist_reports.txt"
-             File objectlistfile = new File (objectlist_reports)
-             def objectslist_list  = objectlistfile.collect { it }
+             File objectlist_reportsfile = new File (objectlist_reports)
+             def objectslistreports_list  = objectlist_reportsfile.collect { it }
 
              println "===================================================================================="
              println "Start the Processing of objects in FIFO manner"
              println "===================================================================================="
 
              // Loop for processing the objects in a FIFO manner
-             for(String i in objectslist_list) {
+             for(String i in objectslistreports_list) {
              println(i);
              //initialprocess()
              //objectprocess()
