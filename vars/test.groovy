@@ -32,11 +32,11 @@ else if ("${extension}" == "iar") {
 
 }
 if (new File('objectlist_reports.txt').exists() == "True") {
-    def case = 1
+    def case = "1"
 } else if (new File('objectlist_oic.txt').exists() == "True") {
-    def case = 2
+    def case = "2"
 } else if ((new File('objectlist_oic.txt').exists() == "True") && (new File('objectlist_reports.txt').exists() == "True")) {
-    def case = 3
+    def case = "3"
 } else {
     println "Only files with ext xdoz, xdmz & iar are allowed in this pipeline"
 }
