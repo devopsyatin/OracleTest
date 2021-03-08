@@ -52,14 +52,14 @@ if ("${reportflag}" == "true") {
 switch(num) {
     case 1:
         println ("Value of Case is 1");
-        break;
+        //break;
     case 2:
         println ("Value of Case is 2");
-        break;
+        //break;
     case 3:
         println ("Value of Case is 3");
-        break;
-     default: 
-            println("The value is unknown"); 
-            break; 
+        //break;
+    default: 
+        println("The value is unknown"); 
+        //break; 
 }
