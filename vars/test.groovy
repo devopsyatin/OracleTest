@@ -21,14 +21,34 @@ if ( ("${extension}" == "xdoz") || ("${extension}" == "xdmz") ) {
     File reportsFile = new File("objectlist_reports.txt")
     //reportsfile.write "${j}"
     reportsFile.append("${j}\n")
-    println reportsFile.text
+   // println reportsFile.text
 }
 else if ("${extension}" == "iar") {
     File oicFile = new File("objectlist_oic.txt")
     //reportsfile.write "${j}"
     oicFile.append("${j}\n")
-    println oicFile.text
+    //println oicFile.text
 }
 
 }
-println new File('objectlist_oic.txt').exists()
+if (new File('objectlist_reports.txt').exists() == "True") {
+    def case = 1
+} else if (new File('objectlist_oic.txt').exists() == "True") {
+    def case = 2
+} else if ((new File('objectlist_oic.txt').exists() == "True") && (new File('objectlist_reports.txt').exists() == "True")) {
+    def case = 3
+} else {
+    println "Only files with ext xdoz, xdmz & iar are allowed in this pipeline"
+}
+
+switch (case) {
+    case 1:
+        println ("Value of Case is 1");
+        break;
+    case 2:
+        println ("Value of Case is 2");
+        break;
+    case 3:
+        println ("Value of Case is 3");
+        break;
+}
