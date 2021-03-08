@@ -4,7 +4,7 @@
 String objectlist = new File ('C:/Users/Yatin/Desktop/github/OracleTest/objectlist.txt').text
 println "${objectlist}"
 
-for(String j in objectslist) {
+for(String j in objectlist) {
 
 File f = new File(j)
 def objectnameext = f.getName()
