@@ -51,4 +51,7 @@ switch(c) {
     case 3:
         println ("Value of Case is 3");
         break;
+     default: 
+            println("The value is unknown"); 
+            break; 
 }
