@@ -21,10 +21,10 @@ if ( ("${extension}" == "xdoz") || ("${extension}" == "xdmz") ) {
     File reportsFile = new File("objectlist_reports.txt")
     //reportsfile.write "${j}"
     reportsFile.append("${j}\n")
-    println reportsfile.text
+    println reportsFile.text
 }
 else if ("${extension}" == "iar") {
-    File oicFile = new File("objectlist_reports.txt")
+    File oicFile = new File("objectlist_oic.txt")
     //reportsfile.write "${j}"
     oicFile.append("${j}\n")
     println oicFile.text
