@@ -19,7 +19,7 @@ def extension = objectnameext.substring(objectnameext.lastIndexOf('.') + 1)
 
 if ( ("${extension}" == "xdoz") || ("${extension}" == "xdmz") ) {
     File reportsfile = new File("objectlist_reports.txt")
-    reportsfile.append("${j}\n")
+    reportsfile.append("${j}")
     println reportsfile.text
 
 
