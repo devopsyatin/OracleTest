@@ -51,15 +51,11 @@ if (("${reportflag}" == "true") && ("${oicflag}" == "false")) {
 
 switch(num) {
     case 1:
+    case 3:
         println ("Value of Case is 1");
         break;
     case 2:
-        println ("Value of Case is 2");
-        break;
     case 3:
-        println ("Value of Case is 3");
-        break;
-    default: 
-        println("The value is unknown"); 
+        println ("Value of Case is 2");
         break; 
 }
