@@ -6,7 +6,10 @@ println "${objectlist}"
 
 for(String j in objectslist) {
 
-def extension = j.substring(objectnameext.lastIndexOf('.') + 1))
+File f = new File(j)
+def objectnameext = f.getName()
+def extension = objectnameext.substring(objectnameext.lastIndexOf('.') + 1)
 println "${extension}"
+
 }
     
