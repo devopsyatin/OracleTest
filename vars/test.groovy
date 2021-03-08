@@ -17,7 +17,12 @@ def objectnameext = f.getName()
 def extension = objectnameext.substring(objectnameext.lastIndexOf('.') + 1)
 println "${extension}"
 
-//while 
+if ( ("${extension}" == "xdoz") || ("${extension}" == "xdmz") ) {
+    println "${j}"
+
+
+}
+
 
 }
     
