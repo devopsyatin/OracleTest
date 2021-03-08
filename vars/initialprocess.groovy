@@ -1,3 +1,6 @@
+import java.io.*
+import groovy.xml.XmlUtil
+
 def call () {
 script {
             checkout scm
