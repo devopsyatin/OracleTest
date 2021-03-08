@@ -18,14 +18,19 @@ def extension = objectnameext.substring(objectnameext.lastIndexOf('.') + 1)
 //println "${extension}"
 
 if ( ("${extension}" == "xdoz") || ("${extension}" == "xdmz") ) {
-    File reportsfile = new File("objectlist_reports.txt")
+    File reportsFile = new File("objectlist_reports.txt")
     //reportsfile.write "${j}"
-    reportsfile.append("${j}\n")
+    reportsFile.append("${j}\n")
     println reportsfile.text
-
+}
+else if ("${extension}" == "iar") {
+    File oicFile = new File("objectlist_reports.txt")
+    //reportsfile.write "${j}"
+    oicFile.append("${j}\n")
+    println oicFile.text
 
 }
 
 
+
 }
-    
