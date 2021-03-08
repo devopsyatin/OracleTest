@@ -39,7 +39,7 @@ println "${oicflag}"
 if (("${reportflag}" == "true") && ("${oicflag}" == "false")) {
     println "report file exists"
      num = 1;
-} else if (("${reportflag}" == "false") && ("${oicflag}" == "true") {
+} else if (("${reportflag}" == "false") && ("${oicflag}" == "true")) {
     println "oic file exists"
     num = 2;
 } else if (("${reportflag}" == "true") && ("${oicflag}" == "true")) {
