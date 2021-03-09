@@ -136,9 +136,9 @@ new File("${env.currentworkdir}/objectExists.xml").text = "${existSampledata}"
              //case1()
 
              // If object Exists in the URI use update SOAP Call
-             env.condition = "True"
+             env.condition = "false"
 
-             if(env.condition == "True") {
+             if(env.condition == "false") {
 
              println "===================================================================================="
              println "The Object Already Exists so executing the update SOAP CALL"
