@@ -3,6 +3,7 @@ import groovy.xml.XmlUtil
 
 def call () {
 //script {
+        withCredentials([usernamePassword(credentialsId: 'Reports-BIP-dev-creds', passwordVariable: 'testpass', usernameVariable: 'testuser')]) {
              //checkout scm
              //objectList = readTrusted("objectlist.txt")
              //println "${objectList}"
@@ -114,8 +115,8 @@ new File("${env.currentworkdir}/objectExists.xml").text = "${existSampledata}"
              
              def param = [:] 
              param["reportObjectAbsolutePath"] = "${decodedPath}"
-             param["userID"] = "SVC-SAAS-DEPLOYMENTS"
-             param["password"] = "Oracle123"
+             param["userID"] = "${testuser}"
+             param["password"] = "${testpass}"
 
              objectExistsFile = new File("${env.currentworkdir}/objectExists.xml").text
              //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
@@ -161,8 +162,8 @@ new File("${env.currentworkdir}/objectExists.xml").text = "${existSampledata}"
              def param1 = [:] 
              param1["objectAbsolutePath"] = "${decodedPath}"
              param1["objectData"] = "${encoded}"
-             param1["userID"] = "SVC-SAAS-DEPLOYMENTS"
-             param1["password"] = "Oracle123"
+             param1["userID"] = "${testuser}"
+             param1["password"] = "${testpass}"
              
              updatexmlFile = new File("${env.currentworkdir}/updateObject.xml").text
              //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
@@ -206,8 +207,8 @@ new File("${env.currentworkdir}/objectExists.xml").text = "${existSampledata}"
              param2["reportObjectAbsolutePathURL"] = "${decodedPathnoext}"
              param2["objectType"] = "${extFile}"
              param2["objectZippedData"] = "${encoded}"
-             param2["userID"] = "SVC-SAAS-DEPLOYMENTS"
-             param2["password"] = "Oracle123"
+             param2["userID"] = "${testuser}"
+             param2["password"] = "${testpass}"
 
              uploadxmlFile = new File("${env.currentworkdir}/main.xml").text
              //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
@@ -232,4 +233,4 @@ new File("${env.currentworkdir}/objectExists.xml").text = "${existSampledata}"
                          } 
                     }
             }
-//    }
+    }
