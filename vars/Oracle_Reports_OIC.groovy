@@ -43,10 +43,12 @@ stages {
                 if (("${extension}" == "xdoz") || ("${extension}" == "xdmz")) {
                     File reportsFile = new File("objectlist_reports.txt")
                     reportsFile.append("${j}\n")
+                    sh 'ls -lrth'
                 }
                 else if ("${extension}" == "iar") {
                     File oicFile = new File("objectlist_oic.txt")
                     oicFile.append("${j}\n")
+                    sh 'ls -lrth'
                 } else {
                     println "No such file "
                 }
