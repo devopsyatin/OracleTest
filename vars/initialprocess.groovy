@@ -86,7 +86,7 @@ def call () {
              println "===================================================================================="
              println " Check if Object Exists "
              println "===================================================================================="
-             libraryResource 'objectExists.xml'
+             writeFile file: 'objectExists.xml', text: libraryResource('objectExists.xml')
              def param = [:] 
              param["reportObjectAbsolutePath"] = "${decodedPath}"
                         
