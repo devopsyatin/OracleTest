@@ -180,7 +180,7 @@ new File("${env.currentworkdir}/objectExists.xml").text = "${existSampledata}"
             
              // Create Update Soap Call
 
-             } else if(condition == "False"){
+             } else if(condition == "false"){
             
              println "===================================================================================="
              println "The Object doesn't Exists so executing the upload SOAP CALL"
