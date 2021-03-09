@@ -113,7 +113,9 @@ new File("${env.currentworkdir}/objectExists.xml").text = "${existSampledata}"
              
              def param = [:] 
              param["reportObjectAbsolutePath"] = "${decodedPath}"
-                        
+             param["userID"] = "SVC-SAAS-DEPLOYMENTS"
+             param["password"] = "Oracle123"
+
              objectExistsFile = new File("${env.currentworkdir}/objectExists.xml").text
              //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
              def objectExistsdata = new XmlSlurper().parseText("${objectExistsFile}")
@@ -158,7 +160,9 @@ new File("${env.currentworkdir}/objectExists.xml").text = "${existSampledata}"
              def param1 = [:] 
              param1["objectAbsolutePath"] = "${decodedPath}"
              param1["objectData"] = "${encoded}"
-
+             param1["userID"] = "SVC-SAAS-DEPLOYMENTS"
+             param1["password"] = "Oracle123"
+             
              updatexmlFile = new File("${env.currentworkdir}/updateObject.xml").text
              //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
              def updatexmldata = new XmlSlurper().parseText("${updatexmlFile}")
@@ -198,9 +202,11 @@ new File("${env.currentworkdir}/objectExists.xml").text = "${existSampledata}"
              new File("${env.currentworkdir}/main.xml").text = "${mainSampledata}"
 
              def param2 = [:] 
-             param2["reportObjectAbsolutePathURL"] = "${decodedPath}"
+             param2["reportObjectAbsolutePathURL"] = "${decodedPathnoext}"
              param2["objectType"] = "${extFile}"
              param2["objectZippedData"] = "${encoded}"
+             param2["userID"] = "SVC-SAAS-DEPLOYMENTS"
+             param2["password"] = "Oracle123"
 
              uploadxmlFile = new File("${env.currentworkdir}/main.xml").text
              //def objectExistsFile = getClass().getResourceAsStream("objectExists.xml")
