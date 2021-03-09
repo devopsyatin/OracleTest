@@ -20,6 +20,7 @@ stages {
         steps {
             script {
                 checkout scm
+                sh 'ls -lrth'
                 sh 'git diff-tree --no-commit-id --name-only --diff-filter=AM -r HEAD > objectlist.txt'
                 env.currentworkdir = pwd()
                 println "${env.currentworkdir}"
@@ -32,13 +33,11 @@ stages {
                 println {"${j}"}
                 def objectnameext = f.getName()
                 def extension = objectnameext.substring(objectnameext.lastIndexOf('.') + 1)
-                if ( ("${extension}" == "xdoz") || ("${extension}" == "xdmz") ) 
-                {
+                if ( ("${extension}" == "xdoz") || ("${extension}" == "xdmz") ) {
                     File reportsFile = new File("objectlist_reports.txt")
                     reportsFile.append("${j}\n")
                 }
-                else if ("${extension}" == "iar") 
-                {
+                else if ("${extension}" == "iar") {
                     File oicFile = new File("objectlist_oic.txt")
                     oicFile.append("${j}\n")
                 }
