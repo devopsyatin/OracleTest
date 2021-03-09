@@ -61,6 +61,7 @@ stages {
                  }
                 }
                 reportsFile = readFile 'objectlist_reports.txt'
+                println "${reportsFile}"
                 }
             }
         }
