@@ -34,7 +34,12 @@ stages {
                 File f = new File(j)
                 println "${j}"
                 def objectnameext = f.getName()
+                println "${objectnameext}"
+                
                 def extension = objectnameext.substring(objectnameext.lastIndexOf('.') + 1)
+                
+                println "${extension}"
+                
                 if ( ("${extension}" == "xdoz") || ("${extension}" == "xdmz") ) {
                     File reportsFile = new File("objectlist_reports.txt")
                     reportsFile.append("${j}\n")
