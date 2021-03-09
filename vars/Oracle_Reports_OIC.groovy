@@ -43,9 +43,9 @@ stages {
                 //File reportsFile = new File("objectlist_reports.txt")
                 //println reportsFile.exists()
                 if (("${extension}" == "xdoz") || ("${extension}" == "xdmz")) {
-                writeFile file: 'objectlist_reports.txt', text: ''
-                     File reportsFile = new File("objectlist_reports.txt")
-                     reportsFile.append("${j}\n")
+                writeFile file: 'objectlist_reports.txt', text: "${j}\n"
+                //     File reportsFile = new File("objectlist_reports.txt")
+                //     reportsFile.append("${j}\n")
                  }
                 // else if ("${extension}" == "iar") {
                 //     File oicFile = new File("objectlist_oic.txt")
