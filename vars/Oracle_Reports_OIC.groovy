@@ -42,6 +42,8 @@ stages {
                 else if ("${extension}" == "iar") {
                     File oicFile = new File("objectlist_oic.txt")
                     oicFile.append("${j}\n")
+                } else {
+                    println "No such file "
                 }
                 }
 
