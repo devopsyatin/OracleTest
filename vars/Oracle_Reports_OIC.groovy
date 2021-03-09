@@ -41,7 +41,7 @@ stages {
                 println "${extension}"
 
                  if (("${extension}" == "xdoz") || ("${extension}" == "xdmz")) {
-                     File reportsFile = new File("objectlist_reports.txt")
+                     File reportsFile = new File("objectlist_reports.txt").text
                      reportsFile.append("${j}\n")
                      sh 'ls -lrth'
                  }
