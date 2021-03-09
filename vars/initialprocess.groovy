@@ -80,6 +80,7 @@ def call () {
              
              // Decoded URI without file ext
              def decodedPathnoext = decodedPath.substring(0, decodedPath.lastIndexOf("."))
+             println "The Decoded URI of File without ext : ${decodedPathnoext}"
 
              def encoded = src.bytes.encodeBase64()
              //println "${encoded}"
