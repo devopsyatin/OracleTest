@@ -44,16 +44,21 @@ stages {
                 //println reportsFile.exists()
                 if (("${extension}" == "xdoz") || ("${extension}" == "xdmz")) {
                 writeFile file: 'objectlist_reports.txt', text: "${j}\n"
+                String reportsFile = "${env.currentworkdir}/objectlist_reports.txt"
+                println "${reportsFile}"
                 //     File reportsFile = new File("objectlist_reports.txt")
                 //     reportsFile.append("${j}\n")
                  }
-                // else if ("${extension}" == "iar") {
+                else if ("${extension}" == "iar") {
+                writeFile file: 'objectlist_oic.txt', text: "${j}\n"
+                String oicFile = "${env.currentworkdir}/objectlist_oic.txt"
+                println "${oicFile}"    
                 //     File oicFile = new File("objectlist_oic.txt")
                 //     oicFile.append("${j}\n")
                 //     sh 'ls -lrth'
-                // } else {
-                //     println "No such file "
-                // }
+                 } else {
+                     println "No such file "
+                 }
                 }
 
                 }
