@@ -12,10 +12,7 @@ pipeline {
     libraries {
         lib("Oracle@main")
             }
-            options {
-                //timeout(time: 1, unit: 'Hours')
-                ansicolor('xterm')
-            }
+            
             agent any
 
 stages {
