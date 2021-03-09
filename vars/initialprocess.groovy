@@ -86,8 +86,15 @@ def call () {
              println "===================================================================================="
              println " Check if Object Exists "
              println "===================================================================================="
-             writeFile file: 'objectExists.xml', text: libraryResource('objectExists.xml')
-             sh 'ls -lrth'
+             
+             //String createTempLocation(String path) {
+             //String tmpDir = pwd tmp: true
+             //return tmpDir + File.separator + new File(path).getName()
+             //   }
+
+
+             writeFile file: "${env.currentworkdir}", text: libraryResource("objectExists.xml")
+             
              def param = [:] 
              param["reportObjectAbsolutePath"] = "${decodedPath}"
                         
