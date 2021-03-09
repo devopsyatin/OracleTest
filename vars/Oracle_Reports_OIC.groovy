@@ -65,8 +65,8 @@ stages {
                      println "No such file "
                  }
                 }
-                println "${reportsFile}"
-                println "${oicFile}"
+                sh 'ls -lrth'
+                sh 'cat objectlist_reports.txt'
                 }
             }
         }
