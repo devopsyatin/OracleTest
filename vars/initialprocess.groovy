@@ -136,6 +136,21 @@ new File("${env.currentworkdir}/objectExists.xml").text = "${existSampledata}"
              println "===================================================================================="
              println "The Object Already Exists so executing the update SOAP CALL"
              println "===================================================================================="
+             
+             def updateSampledata = """
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://xmlns.oracle.com/oxp/service/v2">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v2:updateObject>
+         <v2:objectAbsolutePath></v2:objectAbsolutePath>
+         <v2:objectData></v2:objectData>
+         <v2:userID></v2:userID>
+         <v2:password></v2:password>
+      </v2:updateObject>
+   </soapenv:Body>
+</soapenv:Envelope>
+"""
+             new File("${env.currentworkdir}/updateObject.xml").text = "${updateSampledata}"
 
              def param1 = [:] 
              param1["objectAbsolutePath"] = "${decodedPath}"
@@ -162,6 +177,22 @@ new File("${env.currentworkdir}/objectExists.xml").text = "${existSampledata}"
              println "The Object doesn't Exists so executing the upload SOAP CALL"
              println "===================================================================================="
             
+             def mainSampledata = """
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://xmlns.oracle.com/oxp/service/v2">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v2:uploadObject>
+         <v2:reportObjectAbsolutePathURL></v2:reportObjectAbsolutePathURL>
+         <v2:objectType></v2:objectType>
+         <v2:objectZippedData></v2:objectZippedData>
+         <v2:userID></v2:userID>
+         <v2:password></v2:password>
+      </v2:uploadObject>
+   </soapenv:Body>
+</soapenv:Envelope>
+"""
+
+             new File("${env.currentworkdir}/main.xml").text = "${mainSampledata}"
 
              def param2 = [:] 
              param2["reportObjectAbsolutePathURL"] = "${decodedPath}"
