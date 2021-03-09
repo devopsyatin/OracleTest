@@ -94,7 +94,7 @@ stages {
                     case 1:
                     case 3:
                         println ("Processing BIP Reports");
-                        initialprocess();
+                        initialprocess()
                         if (num == 3){
                         println ("Go to case 2")   
                         }else {
