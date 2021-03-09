@@ -61,9 +61,11 @@ stages {
                  }
                 }
                 String reportsFile = "${env.currentworkdir}/objectlist_reports.txt"
-                println "${reportsFile}"
+                File reportlistfile = new File (reportsFile)
+                println "${reportlistfile}"
                 String oicFile = "${env.currentworkdir}/objectlist_oic.txt"
-                println "${oicFile}"
+                File oiclistfile = new File (oicFile)
+                println "${oiclistfile}"
                 }
             }
         }
