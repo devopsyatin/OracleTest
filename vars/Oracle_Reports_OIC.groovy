@@ -10,7 +10,7 @@ def call(body) {
 
 pipeline {
     libraries {
-        lib("mylib@main")
+        lib("Oracle@main")
             }
             options {
                 timeout(time: 1, unit: 'Hours')
