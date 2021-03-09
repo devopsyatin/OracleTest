@@ -65,14 +65,13 @@ stages {
                      println "No such file "
                  }
                 }
-                sh 'ls -lrth'
-                sh 'cat objectlist_reports.txt'
                 }
             }
         }
     stage('Identify Switch case'){
         steps {
             script {
+                sh 'ls -lrth'
                 reportflag = new File('objectlist_reports.txt').exists()
                 println "${reportflag}"
                 oicflag = new File('objectlist_oic.txt').exists()
