@@ -2,7 +2,7 @@ import java.io.*
 import groovy.xml.XmlUtil
 
 def call () {
-script {
+//script {
              //checkout scm
              //objectList = readTrusted("objectlist.txt")
              //println "${objectList}"
@@ -170,4 +170,4 @@ script {
                          } 
                     }
             }
-    }
+//    }
