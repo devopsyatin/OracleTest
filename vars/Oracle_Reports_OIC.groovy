@@ -79,13 +79,13 @@ stages {
                 
                 if (("${reportflag}" == "true") && ("${oicflag}" == "false")) {
                     println "report file exists"
-                    Integer num = 1;
+                    Integer num = 1
                 } else if (("${reportflag}" == "false") && ("${oicflag}" == "true")) {
                     println "oic file exists"
-                    Integer num = 2;
+                    Integer num = 2
                 } else if (("${reportflag}" == "true") && ("${oicflag}" == "true")) {
                     println "both file exists"
-                    Integer num = 3;
+                    Integer num = 3
                 } else {
                     println "Only files with ext xdoz, xdmz & iar are allowed in this pipeline"
                 }
