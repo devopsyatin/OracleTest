@@ -60,7 +60,7 @@ stages {
                      println "No such file "
                  }
                 }
-                reportsFile = readFile 'objectlist_reports.txt
+                reportsFile = readFile 'objectlist_reports.txt'
                 }
             }
         }
