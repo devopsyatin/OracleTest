@@ -73,7 +73,7 @@ stages {
                 switch(num) {
                     case 1:
                     case 3:
-                        println ("Value of Case is 1");
+                        println ("Processing BIP Reports");
                         initialprocess();
                         if (num == 3){
                         println ("Go to case 2")   
@@ -81,7 +81,7 @@ stages {
                         break;
                         }
                     case 2:
-                        println ("Value of Case is 2");
+                        println ("Processing OIC Integrations");
                         break; 
                     }
                 }
