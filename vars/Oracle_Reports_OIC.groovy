@@ -40,10 +40,11 @@ stages {
                 
                 println "${extension}"
 
-                File reportsFile = new File("objectlist_reports.txt")
-                println reportsFile.exists()
+                //File reportsFile = new File("objectlist_reports.txt")
+                //println reportsFile.exists()
                 if (("${extension}" == "xdoz") || ("${extension}" == "xdmz")) {
-                //     File reportsFile = new File("objectlist_reports.txt")
+                writeFile file: 'objectlist_reports.txt', text: ''
+                     File reportsFile = new File("objectlist_reports.txt")
                      reportsFile.append("${j}\n")
                  }
                 // else if ("${extension}" == "iar") {
