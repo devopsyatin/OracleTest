@@ -29,6 +29,7 @@ stages {
                 
                 for(String j in objectslist_list) {
                 File f = new File(j)
+                println {"${j}"}
                 def objectnameext = f.getName()
                 def extension = objectnameext.substring(objectnameext.lastIndexOf('.') + 1)
                 if ( ("${extension}" == "xdoz") || ("${extension}" == "xdmz") ) 
