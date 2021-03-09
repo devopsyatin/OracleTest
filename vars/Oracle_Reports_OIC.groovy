@@ -60,12 +60,7 @@ stages {
                      println "No such file "
                  }
                 }
-                String reportsFile = "${env.currentworkdir}/objectlist_reports.txt"
-                File reportlistfile = new File (reportsFile)
-                println "${reportlistfile}"
-                String oicFile = "${env.currentworkdir}/objectlist_oic.txt"
-                File oiclistfile = new File (oicFile)
-                println "${oiclistfile}"
+                reportsFile = readFile 'objectlist_reports.txt
                 }
             }
         }
