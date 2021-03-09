@@ -72,20 +72,20 @@ stages {
         steps {
             script {
                 sh 'ls -lrth'
-                reportflag = new File('objectlist_reports.txt').exists()
+                def reportflag = new File("${env.currentworkdir}/objectlist_reports.txt").exists()
                 println "${reportflag}"
-                oicflag = new File('objectlist_oic.txt').exists()
+                def oicflag = new File("${env.currentworkdir}/objectlist_oic.txt").exists()
                 println "${oicflag}"
                 
                 if (("${reportflag}" == "true") && ("${oicflag}" == "false")) {
                     println "report file exists"
-                    num = 1;
+                    def num = 1;
                 } else if (("${reportflag}" == "false") && ("${oicflag}" == "true")) {
                     println "oic file exists"
-                    num = 2;
+                    def num = 2;
                 } else if (("${reportflag}" == "true") && ("${oicflag}" == "true")) {
                     println "both file exists"
-                    num = 3;
+                    def num = 3;
                 } else {
                     println "Only files with ext xdoz, xdmz & iar are allowed in this pipeline"
                 }
