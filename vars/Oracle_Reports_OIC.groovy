@@ -39,8 +39,8 @@ stages {
                 def extension = objectnameext.substring(objectnameext.lastIndexOf('.') + 1)
                 
                 println "${extension}"
-                
-                if ( ("${extension}" == "xdoz") || ("${extension}" == "xdmz") ) {
+
+                if (("${extension}" == "xdoz") || ("${extension}" == "xdmz")) {
                     File reportsFile = new File("objectlist_reports.txt")
                     reportsFile.append("${j}\n")
                 }
