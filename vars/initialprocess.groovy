@@ -3,7 +3,7 @@ import groovy.xml.XmlUtil
 
 def call () {
 script {
-             checkout scm
+             //checkout scm
              //objectList = readTrusted("objectlist.txt")
              //println "${objectList}"
              env.currentworkdir = pwd()
