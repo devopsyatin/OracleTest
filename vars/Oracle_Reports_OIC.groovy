@@ -90,7 +90,7 @@ stages {
                     println "Only files with ext xdoz, xdmz & iar are allowed in this pipeline"
                 }
 
-                switch(num) {
+                switch (num) {
                     case 1:
                     case 3:
                         println ("Processing BIP Reports");
