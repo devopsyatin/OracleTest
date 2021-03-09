@@ -24,6 +24,8 @@ stages {
                 sh 'git diff-tree --no-commit-id --name-only --diff-filter=AM -r HEAD > objectlist.txt'
                 env.currentworkdir = pwd()
                 println "${env.currentworkdir}"
+                sh 'ls -lrth'
+                sh 'cat objectlist.txt'
                 String objectlist = "${env.currentworkdir}/objectlist.txt"
                 File objectlistfile = new File (objectlist)
                 def objectslist_list  = objectlistfile.collect { it }
