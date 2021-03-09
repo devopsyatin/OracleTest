@@ -45,6 +45,7 @@ stages {
                      reportsFile.append("${j}\n")
                      sh 'ls -lrth'
                  }
+                 sh 'ls -lrth'
                 // else if ("${extension}" == "iar") {
                 //     File oicFile = new File("objectlist_oic.txt")
                 //     oicFile.append("${j}\n")
