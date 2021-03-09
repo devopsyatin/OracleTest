@@ -77,6 +77,9 @@ def call () {
              // Decoding the URI of file path
              def decodedPath = URLDecoder.decode(cdataPath)
              println "The Decoded URI of File : ${decodedPath}"
+             
+             // Decoded URI without file ext
+             def decodedPathnoext = decodedPath.substring(0, decodedPath.lastIndexOf("."))
 
              def encoded = src.bytes.encodeBase64()
              //println "${encoded}"
