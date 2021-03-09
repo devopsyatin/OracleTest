@@ -79,18 +79,18 @@ stages {
                 
                 if (("${reportflag}" == "true") && ("${oicflag}" == "false")) {
                     println "report file exists"
-                    def num = 1;
+                    def num = "1";
                 } else if (("${reportflag}" == "false") && ("${oicflag}" == "true")) {
                     println "oic file exists"
-                    def num = 2;
+                    def num = "2";
                 } else if (("${reportflag}" == "true") && ("${oicflag}" == "true")) {
                     println "both file exists"
-                    def num = 3;
+                    def num = "3";
                 } else {
                     println "Only files with ext xdoz, xdmz & iar are allowed in this pipeline"
                 }
 
-                switch('num') {
+                switch(num) {
                     case 1:
                     case 3:
                         println ("Processing BIP Reports");
