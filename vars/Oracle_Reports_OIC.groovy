@@ -39,18 +39,23 @@ stages {
                 def extension = objectnameext.substring(objectnameext.lastIndexOf('.') + 1)
                 
                 println "${extension}"
-
+                //writeFile file: 'objectlist_reports.txt', text: ''
+                //writeFile file: 'objectlist_ioc.txt', text: ''
                 //File reportsFile = new File("objectlist_reports.txt")
                 //println reportsFile.exists()
                 if (("${extension}" == "xdoz") || ("${extension}" == "xdmz")) {
-                writeFile file: 'objectlist_reports.txt', text: "${j}\n"
+                writeFile file: 'objectlist_reports.txt', text: ''
+                def readContentrep = readFile 'objectlist_reports.txt'
+                writeFile file: 'objectlist_reports.txt', text: readContentrep + "\n${j}"
                 //String reportsFile = "${env.currentworkdir}/objectlist_reports.txt"
                 //println "${reportsFile}"
                 //     File reportsFile = new File("objectlist_reports.txt")
                 //     reportsFile.append("${j}\n")
                  }
                 else if ("${extension}" == "iar") {
-                writeFile file: 'objectlist_oic.txt', text: "${j}\n"
+                writeFile file: 'objectlist_oic.txt', text: ''
+                def readContentoic = readFile 'objectlist_oic.txt'
+                writeFile file: 'objectlist_oic.txt', text: readContentoic + "\n${j}"
                 //String oicFile = "${env.currentworkdir}/objectlist_oic.txt"
                 //println "${oicFile}"    
                 //     File oicFile = new File("objectlist_oic.txt")
