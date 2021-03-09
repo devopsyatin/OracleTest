@@ -92,8 +92,21 @@ def call () {
              //return tmpDir + File.separator + new File(path).getName()
              //   }
 
+             def existSampledata = """
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v2="http://xmlns.oracle.com/oxp/service/v2">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <v2:objectExist>
+         <v2:reportObjectAbsolutePath></v2:reportObjectAbsolutePath>
+         <v2:userID></v2:userID>
+         <v2:password></v2:password>
+      </v2:objectExist>
+   </soapenv:Body>
+</soapenv:Envelope>
+"""
+new File("${env.currentworkdir}/objectExists.xml").text = "${existSampledata}"
 
-             writeFile file: "${env.currentworkdir}", text: libraryResource("objectExists.xml")
+             //writeFile file: "${env.currentworkdir}", text: libraryResource("objectExists.xml")
              
              def param = [:] 
              param["reportObjectAbsolutePath"] = "${decodedPath}"
