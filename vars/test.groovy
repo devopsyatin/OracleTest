@@ -69,13 +69,28 @@ def output = """
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <soapenv:Body>
 <objectExistResponse xmlns="http://xmlns.oracle.com/oxp/service/v2">
-<objectExistReturn>false</objectExistReturn>
+<objectExistReturn>ubknown error</objectExistReturn>
 </objectExistResponse>
 </soapenv:Body>
 </soapenv:Envelope>
 """
 //println "${output}"
 def response = new XmlSlurper().parseText(output)
-response.objectExistResponse.findAll { it.objectExistReturn }.each { println it.objectExistReturn.text() }
-//println "${result}"
+def condition = response.'**'.find { it.objectExistReturn } //.each { println it.objectExistReturn.text() }
+println "${condition}"
 
+if(condition == "true") {
+
+            println "===================================================================================="
+            println "The Object Already Exists so executing the update SOAP CALL"
+            println "===================================================================================="
+             
+} else if (condition == "false") {
+            println "===================================================================================="
+            println "The Object doen't Exists so executing the upload SOAP CALL"
+            println "===================================================================================="
+} else {
+            println "===================================================================================="
+            println " Check for object Failed"
+            println "===================================================================================="
+}

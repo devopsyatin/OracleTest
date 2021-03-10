@@ -131,10 +131,13 @@ def call () {
 
             // If object Exists in the URI use update SOAP Call
             
+            def checkOutput = "response from soap call"
 
-            env.condition = "false"
+            def checkResponse = new XmlSlurper().parseText(checkOutput)
+            def condition = checkResponse.'**'.find { it.objectExistReturn } //.each { println it.objectExistReturn.text() }
+            println "${condition}"
 
-            if(env.condition == "true") {
+            if(condition == "true") {
 
             println "===================================================================================="
             println "The Object Already Exists so executing the update SOAP CALL"
@@ -175,6 +178,34 @@ def call () {
             println "${updateXml}"
             
             // Create Update Soap Call
+
+
+            def updateOutput = "response from soap call"
+
+            def updateResponse = new XmlSlurper().parseText(updateOutput)
+            def updateResponseOutput = updateResponse.'**'.find { it.updateObjectReturn } //.each { println it.objectExistReturn.text() }
+            println "${updateResponseOutput}"
+
+            if(updateResponseOutput == "true") {
+
+            println "===================================================================================="
+            println "The Object updated successfully"
+            println "===================================================================================="   
+
+            } else if(updateResponseOutput == "false"){
+
+            println "===================================================================================="
+            println "The Object could not be updated, it looks like someone tried to update the same file."
+            println "Please check logs or reach out to administrators of the project.                    "
+            println "===================================================================================="
+            
+            } else {
+            
+            println "===================================================================================="
+            println "Unknown Error. Please check stack trace or response output"
+            println "===================================================================================="
+
+            }
 
             } else if(condition == "false"){
             
@@ -220,6 +251,34 @@ def call () {
             println "${uploadXml}"
             
             // Create Upload Soap Call
+
+
+            def uploadOutput = "response from soap call"
+
+            def uploadResponse = new XmlSlurper().parseText(uploadOutput)
+            def uploadResponseOutput = uploadResponse.'**'.find { it.updateObjectReturn } //.each { println it.objectExistReturn.text() }
+            println "${uploadResponseOutput}"
+
+            if(uploadResponseOutput == "true") {
+
+            println "===================================================================================="
+            println "The Object uploaded successfully"
+            println "===================================================================================="   
+
+            } else if(uploadResponseOutput == "false"){
+
+            println "===================================================================================="
+            println "The Object could not be uploaded.                                                   "
+            println "Please check logs or reach out to administrators of the project.                    "
+            println "===================================================================================="
+            
+            } else {
+            
+            println "===================================================================================="
+            println "Unknown Error. Please check stack trace or response output"
+            println "===================================================================================="
+
+            }
 
             } else {
             println "========================================================================================="
