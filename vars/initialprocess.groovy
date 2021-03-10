@@ -261,13 +261,21 @@ def call () {
             // Create Upload Soap Call
 
 
-            def uploadOutput = "response from soap call"
+            def uploadOutput = """
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"> xmlns="http://xmlns.oracle.com/oxp/service/v2">
+<soapenv:Body>
+<uploadObjectResponse>
+<uploadObjectReturn>/Custom/10-OD/10.20-OD SCM/10.20.10-OD SCM RICE/10.20.10.10-OD RICE PO/ENH-018 OD BFO PO Close Process/Reports/Test_OD.xdo</uploadObjectReturn>
+</uploadObjectResponse>
+</soapenv:Body>
+</soapenv:Envelope>
+"""
 
             def uploadResponse = new XmlSlurper().parseText(uploadOutput)
-            def uploadResponseOutput = uploadResponse.'**'.find { it.updateObjectReturn } //.each { println it.objectExistReturn.text() }
+            def uploadResponseOutput = uploadResponse.'**'.find { it.uploadObjectReturn } //.each { println it.objectExistReturn.text() }
             println "${uploadResponseOutput}"
 
-            if(uploadResponseOutput == "true") {
+            if(uploadResponseOutput == "${decodedPath}") {
 
             println "===================================================================================="
             println "The Object uploaded successfully"
