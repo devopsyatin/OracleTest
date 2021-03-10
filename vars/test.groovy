@@ -76,6 +76,9 @@ def output = """
 """
 //println "${output}"
 def response = new XmlSlurper().parseText(output)
-def result = response.objectExistResponse[0]
-def value = result.@objectExistReturn
-println "${value}"
+def result = response.Body.objectExistResponse.each {
+    log info it.objectExistReturn
+}
+//def value = result.@objectExistReturn
+println "${result}"
+
