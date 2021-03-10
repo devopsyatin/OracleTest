@@ -131,7 +131,15 @@ def call () {
 
             // If object Exists in the URI use update SOAP Call
             
-            def checkOutput = "response from soap call"
+            def checkOutput = """
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<soapenv:Body>
+<objectExistResponse xmlns="http://xmlns.oracle.com/oxp/service/v2">
+<objectExistReturn>false</objectExistReturn>
+</objectExistResponse>
+</soapenv:Body>
+</soapenv:Envelope>
+"""
 
             def checkResponse = new XmlSlurper().parseText(checkOutput)
             def condition = checkResponse.'**'.find { it.objectExistReturn } //.each { println it.objectExistReturn.text() }
