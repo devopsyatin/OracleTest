@@ -74,7 +74,8 @@ def output = """
 </soapenv:Body>
 </soapenv:Envelope>
 """
-
+//println "${output}"
 def response = new XmlSlurper().parseText(output)
-def Result = response.Envelope.Body.objectExistResponse[0].objectExistReturn
-println "${Result}"
+def result = response.objectExistResponse[0]
+def value = result.@objectExistReturn
+println "${value}"
